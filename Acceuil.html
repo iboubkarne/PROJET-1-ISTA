@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemple de page avec image de fond et texte</title>
+  <!-- Lien vers les fichiers Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <!-- Style CSS pour la page -->
+  <style>
+    /* Style pour la section avec l'image de fond */
+    .background-image {
+      background-image: url('a1.jpg');
+      background-size: cover;
+      background-position: center center;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      height: calc(117vh - 112px);
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+    }
+    /* Style pour l'overlay semi-transparent */
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.377);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    /* Style pour le texte par-dessus l'image */
+    .overlay-text {
+      color: white;
+      font-size: 3em;
+      margin-left: 8%;
+      margin-top: 20vh;
+      
+      
+    }
+    .h2
+    {
+        font-size: 0.8em;
+        font-weight: 700;
+        text-align: center;
+    }
+    .hh3
+    {
+        font-size: 0.8em;
+        font-family:Japanese;
+        font-weight: 700;
+        text-align: center;
+    }
+    .a 
+    {
+        font-weight: 700;
+    }
+    .div2
+    {
+        background-color: rgba(245, 245, 220, 0.432);
+        color: rgb(94, 87, 48);
+        width: 40%;
+        margin-left: -2%;
+    }
+    .h1
+    {
+        margin-left: -8%;
+    }
+    .button
+    {
+        margin-left: 40%;
+        margin-top: 5%;
+    }
+    .btn
+    {
+        color: beige;
+        background-color:#3c5802be;
+        padding: 1.3%;
+        font-weight: bold;
+        border-radius: 20%;
+    }
+    .btn:hover
+    {
+        color: rgb(5, 51, 5);
+        background-color: rgb(168, 168, 109);
+    }
+    .titre1
+    {
+        font-family:Japanese;
+        text-align: center;
+        font-weight: bold;
+        font-size: xxx-large;
+    }
+    .span2
+    {
+        color: #3c5802be;
+        font-weight: bold;
+    }
+    #row
+    {
+        margin-left: 10%;
+        margin-right: 9%;
+    }
+    .img
+    {
+        width: 10%;
+        margin-right: 23%;
+    }
+    img:hover
+    {
+        color: rgb(223, 223, 43);
+    }
+    #image:hover {
+        opacity: 0.7;
+      }
+      .h5
+      {
+        margin-left: 22%;
+        color:  #3c5802be; 
+        font-weight: bold;
+        margin-top: 3%;
+        font-family:Japanese;
+        font-size: x-large;
+      }
+      .cards {
+          margin-left: 100%;
+          margin-right:100px;
+        }
+        
+        .card{
+        width: 15em;
+        height: 20em;
+        margin: auto;
+        position: relative;
+        transform-style:preserve-3d;
+        transition: all 0.6s ease-in-out;
+        }
+        .card > div{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15em;
+        height: 20em;
+        background-color: transparent;
+        font-family: Arial;
+        }
+        .back img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-top: -3%;
+}
+  
+.price {
+  color: grey;
+  font-size: 22px;
+  text-align: center;
+  font-family:Japanese;
+  margin-top: -3%;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  color: white;
+  background-color:  #3c5802be;
+  color: beige;
+  text-align: center;
+  width: 90%;
+  
+}
+.card button:hover
+{
+  background-color:  #324b02be;
+}
+
+.card .front {
+z-index:2;
+backface-visibility:hidden;
+background-color: 0.1;
+}
+.card .back {
+z-index:1;
+transform:rotateY(180deg);
+backface-visibility: hidden;
+background-color: beige;
+}
+.card:hover{
+transform:rotateY(180deg);
+}
+body{perspective:1000px}
+
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+}
+.row
+{
+    margin-right: 7%;
+}
+
+.col
+
+{
+    margin-right: -13.1em;
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-right: 1%;
+}
+.Ventes_flash
+{
+    margin-top: 15%;
+    color: #3c5802be;
+    text-align: left;
+    margin-left: 9%;
+    font-family:Japanese;
+}
+.btn2
+{
+    background-color: #3c5802be;
+    padding: 1.8%;
+    width: 50%;
+    border: none;
+    margin-top: 18%;
+    margin-right: -20em;
+    color: beige;
+    font-family:Japanese;
+}
+.btn2:hover
+{
+    background-color:#273804be;
+    
+}
+.span
+{
+    margin-left: -0.5%;
+    font-family:Japanese;
+}
+.hh
+{
+    margin-left: -5%;
+    font-family:Japanese;
+    font-weight: 700;
+}
+.back p
+{
+    margin-top: -5%;
+}
+.btn3
+{
+    color: beige;
+        background-color: #3c5802be;
+        padding: 0.5%;
+        font-weight: bold;
+        border-radius: 5%;
+        margin-top: 2%;
+        width: 10%;
+        border: none;
+        font-family:Japanese;
+}
+.btn3:hover
+    {
+        color:#3c5802be;
+        background-color: rgb(168, 168, 109);
+    }
+    .social-links{
+        margin-top: 3%;
+    }
+    
+    .social-links a{
+        font-size: 150%;
+        color: rgb(93, 95, 93);
+        margin-left: 3%;
+    }
+    
+    .social-links a:hover{
+     color: rgb(11, 104, 11);
+    }
+    .m 
+    {
+        font-family:Japanese;
+        color: rgb(11, 104, 11);
+        font-weight: bolder;
+
+
+    }
+    .n
+    {
+        font-size: 80%;
+        margin-left: 7%;
+        color: #606163;
+        color: rgb(11, 143, 11);
+    }
+    .az
+{
+    text-decoration: none;
+    font-size: 80%;
+    color: #3c5802be;
+}
+.az:hover
+{
+    color:rgb(11, 104, 11);
+    text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <i> <div class="background-image">
+    <div class="overlay"></div>
+    <div class="overlay-text">
+      <h1 class="h1" style="font-family:Japanese;">Faites toujours de la place pour un peu de <span style="color: #3c5802be; font-weight: 700;">beauté</span>  dans votre vie</h1>
+      <br>
+      <div class="div2"><h2 class="h2" style="font-family:Japanese;">soin de soi</h2>
+      <h3 class="hh3">Cosmétiques naturels <br> <span class="a">&</span>  <br> fait main 
+      </h3></div>
+    </div>
+    <div class="button"><button href="#h" class="btn">Acheter maintenant</button></div>
+</div></i>
+  <br><br><br>
+ <i> 
+<h1 class="titre1">Par <span class="span2">catégorie</span> </h1>
+
+<div class="row" id="row">
+    <div class="col-sm-4 text-dark "  id="h">
+        <a class="img"  href="#"><img src="a2.jpg" id="image" class="rounded-circle mt-4 mx-3" alt="Cinque Terre"width="50%" height="60%"> </a>
+         <br><h5 class="h5">Visage</h5>
+    </div>
+
+    <div  class="col-sm-4 text-dark " id="h">
+        <a class="img"  href="#"><img src="a3.jpg" id="image" class="rounded-circle mt-4 mx-3" alt="Cinque Terre" width="50%" height="60%"> </a>
+         <br><h5 class="h5">Cheveux</h5>
+    </div>
+
+    <div class="col-sm-4 text-dark " id="h">
+        <a class="img"  href="#" ><img src="a7.jpg" id="image" class="rounded-circle mt-4 mx-3" alt="Cinque Terre" width="50%" height="60%"> </a>
+        <br><h5 class="h5">Nutrition</h5>
+    </div  class="col-sm-4 text-dark ">
+</div></i>
+<br><br>
+<i>
+    <div class="container-fluid mt-3 text-end "style="background-color:#ddca8bd3;">
+        <div class="row">
+          <div class="col-sm-3  ">
+          <div class="Ventes_flash">
+            <h1 class="hh"> Ventes flash</h1>
+            <h5 style="font-weight: bold;">Durée limitée et quantités limitées !!  <br>
+               <span class="span">Jusqu'à -70% de réducaation</span>    
+            </h5>
+          </div>
+          <button class="btn2">PROFITREZ-EN</button></i>
+          </div>
+          <div class="col-sm-9   ">
+            <div class="row">
+              <div class="col   ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a4.jpg" width=100%>
+                       
+                  </div>
+                    <div class="back"  >
+                        
+                                   
+                        <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                            <img src="a4.jpg" > <br>
+                                <br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                        <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                    </div>
+               </div>
+              </div>
+              <div class="col  ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a5.jpg" width=100% height="100%">
+                         <h2 style="text-align:center;font-family: Arial;"></h2>   
+                  </div>
+                    <div class="back">
+                        
+                        <i><h2 style="font-family:Japanese; font-size: x-large;text-align: center;">Spiruline france bio</h2><br>
+                            <img src="a5.jpg" > <br><br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 359 DH</strike> 200 DH</p>
+                        <center><p style="font-family:Japanese;">Complément alimentaire</p>
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';" class="btnn">AJOUTER</button></p></center>
+                 </i>
+                    </div>
+               </div>
+            </div>
+            <div class="col    ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a6.jpg" width=100% height="100%">
+                       
+                  </div>
+                    <div class="back">
+                        
+                        <i><h2 style="text-align:center;font-family:Japanese;">Masseur visage </h2>
+                            <img src="a6.jpg" > <br>
+                        <p class="price" ><strike style="font-size: medium; color: red;font-family:Japanese;"> 130 DH </strike> 45 DH</p>
+                        <center><p style="font-family:Japanese;">Masseur visage en pierre de jade blanc</p>
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';" class="btnn">AJOUTER</button></p></center>
+                 </i>
+                    </div>
+               </div>
+            </div>
+            <div class="col    ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a8.jpg" width=100%>
+                       
+                  </div>
+                    <div class="back">
+                        
+                        <i><h2 style="font-family:Japanese;font-size: x-large; text-align: center;">Réglisse en poudre</h2>
+                        <img src="a8.jpg" > <br><br>
+                        <p class="price"style="font-family:Japanese;"><strike style="font-size: medium; color: red;font-family:Japanese;"> 230 DH </strike> 115 DH</p>
+                        <center><p>Réglisse en poudre</p>
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';" class="btnn">AJOUTER</button></p></center>
+</i>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+</div></div></div> <br><br><br> <i>
+<h1 class="titre1">Produits <span class="span2">récents</span> </h1></i>
+<br><br>
+<div class="container-fluid   "style="width: 87%;">
+    <div class="row">
+        <div class="col   ">
+            <div class="card" >
+                <div class="front">
+                     <img src="a9.jpg" width=100%>
+                   
+              </div>
+                <div class="back"  >
+                    
+                               
+                    <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+
+                        <img src="a9.jpg" > <br>
+                            <br>
+                    <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                    <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                    <p style="font-family:Japanese;">100% naturel</p>
+                    <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                </div>
+           </div>
+          </div>
+
+
+
+
+
+
+
+ <div class="col   ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a4.jpg" width=100%>
+                       
+                  </div>
+                    <div class="back"  >
+                        
+                                   
+                        <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                            <img src="a4.jpg" > <br>
+                                <br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                        <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                    </div>
+               </div>
+              </div>
+
+
+
+
+
+       <div class="col   ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a10.jpg" width=100% height="100%">
+                       
+                  </div>
+                    <div class="back"  >
+                        
+                                   
+                        <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                            <img src="a4.jpg" > <br>
+                                <br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                        <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                    </div>
+               </div>
+              </div>
+
+
+
+
+
+
+
+
+
+ <div class="col   ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a4.jpg" width=100%>
+                       
+                  </div>
+                    <div class="back"  >
+                        
+                                   
+                        <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                            <img src="a4.jpg" > <br>
+                                <br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                        <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                    </div>
+               </div>
+              </div>
+      
+
+
+
+
+    </div></div>
+    <div class="container-fluid   "style="width: 87%;">
+        <div class="row">
+           <div class="col   ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a4.jpg" width=100%>
+                       
+                  </div>
+                    <div class="back"  >
+                        
+                                   
+                        <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                            <img src="a4.jpg" > <br>
+                                <br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                        <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                    </div>
+               </div>
+              </div>
+
+
+
+
+
+
+          <div class="col   ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a4.jpg" width=100%>
+                       
+                  </div>
+                    <div class="back"  >
+                        
+                                   
+                        <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                            <img src="a4.jpg" > <br>
+                                <br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                        <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                    </div>
+               </div>
+              </div>
+
+
+
+
+ <div class="col   ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a4.jpg" width=100%>
+                       
+                  </div>
+                    <div class="back"  >
+                        
+                                   
+                        <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                            <img src="a4.jpg" > <br>
+                                <br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                        <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                    </div>
+               </div>
+              </div>
+
+
+
+
+
+         <div class="col   ">
+                <div class="card" >
+                    <div class="front">
+                         <img src="a4.jpg" width=100%>
+                       
+                  </div>
+                    <div class="back"  >
+                        
+                                   
+                        <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                            <img src="a4.jpg" > <br>
+                                <br>
+                        <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                        <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                        <p style="font-family:Japanese;">100% naturel</p>
+                        <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                    </div>
+               </div>
+              </div>
+          </div></div></div>
+          <i><center><button class="btn3">VOIR PLUS</button></center>
+            <br><br><br><br>
+            <h1 class="titre1">Meilleures <span class="span2">ventes</span> </h1>
+            <div class="container-fluid   "style="width: 87%;">
+                <div class="row">
+                    <div class="col   ">
+                        <div class="card" >
+                            <div class="front">
+                                 <img src="a4.jpg" width=100%>
+                               
+                          </div>
+                            <div class="back"  >
+                                
+                                           
+                                <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                                    <img src="a4.jpg" > <br>
+                                        <br>
+                                <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                                <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                                <p style="font-family:Japanese;">100% naturel</p>
+                                <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                            </div>
+                       </div>
+                      </div>
+            
+            
+            
+            
+            
+            
+            
+             <div class="col   ">
+                            <div class="card" >
+                                <div class="front">
+                                     <img src="a4.jpg" width=100%>
+                                   
+                              </div>
+                                <div class="back"  >
+                                    
+                                               
+                                    <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                                        <img src="a4.jpg" > <br>
+                                            <br>
+                                    <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                                    <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                                    <p style="font-family:Japanese;">100% naturel</p>
+                                    <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                                </div>
+                           </div>
+                          </div>
+            
+            
+            
+            
+            
+                   <div class="col   ">
+                            <div class="card" >
+                                <div class="front">
+                                     <img src="a4.jpg" width=100%>
+                                   
+                              </div>
+                                <div class="back"  >
+                                    
+                                               
+                                    <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                                        <img src="a4.jpg" > <br>
+                                            <br>
+                                    <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                                    <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                                    <p style="font-family:Japanese;">100% naturel</p>
+                                    <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                                </div>
+                           </div>
+                          </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+             <div class="col   ">
+                            <div class="card" >
+                                <div class="front">
+                                     <img src="a4.jpg" width=100%>
+                                   
+                              </div>
+                                <div class="back"  >
+                                    
+                                               
+                                    <i><h2 style="text-align:center;font-family:Japanese;">Peígne volume</h2>
+                                        <img src="a4.jpg" > <br>
+                                            <br>
+                                    <p class="price"><strike style="font-size: medium; color: red;font-family:Japanese;"> 109 DH</strike> 88 DH</p>
+                                    <center><p style="font-family:Japanese;">Accessoires: Peígne volume en bois</p> 
+                                    <p style="font-family:Japanese;">100% naturel</p>
+                                    <p style="font-family:Japanese;"><button onclick="window.location.href='./login.html';">AJOUTER</button></p></center></i>
+                                </div>
+                           </div>
+                          </div>
+                  
+            
+            
+            
+            
+                </div></div>
+
+                <i><center><button class="btn3">VOIR PLUS</button></center>
+                    
+<br><br><br><br><br><br><br>
+<div class="container-fluid" Style="background-color:#ddca8bd3; width: 100%; ">
+    <div class="row">
+        
+        <div class="col ">
+         <div class="row" id="row">
+        <div class="col p-1 "><br><br><br>
+            <h6  class="m">INFORMATIONS SUR <br> L'ENTREPRISE</h6>
+            <p><a class="az"  href="#">Qui Sommes-Nous?</a></p>
+            <p><a class="az"  href="#">Affilié</a></p>
+            <p><a class="az"  href="#">Blogger</a></p>
+        </div>
+        <div class="col p-1 "><br><br><br>
+            <h6 class="m">CENTRE & D'AIDE</h6>
+            <p><a class="az"  href="#">Livraison</a></p>
+            <p><a class="az"  href="#">Retour</a></p>
+            <p><a class="az"  href="#">Commande</a></p>
+            <p><a class="az"  href="#">Statut De Commande</a></p>
+            <p><a class="az"  href="#">Responsabilité Sociale</a></p>
+            <p><a class="az"  href="#">PURE-BEAUTY VIP</a></p>
+        </div>
+        <div class="col p-1"><br><br><br>
+            <h6 class="m" >AIDE</h6>
+            <p><a class="az" href="#">Nous Contacter</a></p>
+            <p><a class="az"  href="#">Paiement</a></p>
+            <p><a class="az"  href="#">Points Bonus</a></p>
+            <p><a class="az"  href="#">Avantages Des Membres</a></p>
+        </div>
+      </div>
+        
+        </div>
+        <div class="col p-3 "><br><br><br>
+            <h4 class="m">TROUVEZ-NOUS SUR</h4>
+            <div class="social-links">
+                <a href=""><i class="fab fa-linkedin"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-pinterest"></i></a>
+              </div>
+        </div>
+        </div><br><br><br>
+        <div class="n">
+            <br>
+            <p >©2009-2023 SHEIN Tous droits réservés</p>
+            <a class="az" href="#">Centre de confidentialité </a>&emsp;|&emsp;<a class="az" href="#">Politique de confidentialité & cookies</a>&emsp;|&emsp;<a class="az" href="#">Termes et conditions</a> |<br> <a class="az" href="#">Notice de droits d'auteur</a>&emsp;|&emsp;<a class="az" href="#">Impression</a>&emsp;|&emsp; <a class="az" href="#">MAROC</a>
+    
+    <br><br><br><br><br>
+        </div>
+      </div>
+</body>
+
+</html>
+

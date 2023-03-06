@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple de page avec image de fond et texte</title>
+    <!-- Lien vers les fichiers Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!-- Style CSS pour la page -->
+    <style>
+        .background-image {
+          background-image: url("a9.jpg");
+          background-size: cover;
+          background-position: center center;
+          height: 30vh;
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          height: calc(35vh - 112px);
+          overflow: hidden;
+          position: relative;
+          z-index: 0;
+        }
+        /* Style pour l'overlay semi-transparent */
+        .overlay {
+          background-color: rgba(0, 0, 0, 0.521);
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+        /* Style pour le texte par-dessus l'image */
+        .overlay-text {
+          color: white;
+          font-size: 3em;
+          margin-left: 6%;
+          margin-top: 2vh;
+        }
+        .span
+        {
+            color: rgb(245, 245, 170);
+            font-weight: bold;
+            font-size: xxx-large;
+        }
+        
+        #container-fluid
+        {
+            background-color: rgb(248, 248, 190);
+            margin-left: -0%;
+            width: 209.2vh;
+        }
+        #container-fluid p
+        {
+            text-align: center;
+            color:rgb(46, 124, 46);
+            font-weight: 700;
+            padding: 0.5%;
+        }
+        .DIV1
+        {
+            background-color: rgb(93, 121, 93);
+            width: 70% ;
+            margin-top: 4%;
+            margin-left: 5%;
+            height: -10%;
+        }
+        .img2
+        {
+            margin-left: 13%;
+            margin-top: -65%;
+        }
+        #content
+        {
+            margin-left: 6%;
+            margin-top: -6%;
+        }
+        #text
+        {
+            font-size: x-large;
+            font-family:Japanese;
+            font-weight: 700;
+            color:  rgb(93, 121, 93);
+            margin-top: 5%;
+        }
+        .DIV2
+        {
+            background-color: rgba(207, 162, 79, 0.904);
+            width: 30% ;
+            margin-left: 9%;
+            height: calc(77vh - 112px);
+        }
+        #img3
+        {
+            margin-top: -26.6%;
+            margin-left: 56%;
+        }
+        .text2
+        {
+            color:rgba(207, 162, 79, 0.904) ;
+        }
+        .timeline {
+  position: relative;
+  padding: 0;
+  list-style: none;
+}
+.timeline:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40px;
+  width: 2px;
+  margin-left: -1.5px;
+  content: "";
+  background-color: #e9ecef;
+}
+.timeline > li {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 50px;
+}
+.timeline > li:after, .timeline > li:before {
+  display: table;
+  content: " ";
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li .timeline-panel {
+  position: relative;
+  float: right;
+  width: 100%;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+.timeline > li .timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+.timeline > li .timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+.timeline > li .timeline-image {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  margin-left: 0;
+  text-align: center;
+  color: white;
+  border: 7px solid #e9ecef;
+  border-radius: 100%;
+  background-color: #6fac47;
+}
+.timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+  font-size: 10%;
+  line-height: 14px;
+  margin-top: 12px;
+  color: #6fac47;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+.timeline > li.timeline-inverted > .timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+.timeline > li:last-child {
+  margin-bottom: 0;
+}
+.timeline .timeline-heading h4, .timeline .timeline-heading .h4 {
+  margin-top: 6%;
+  color: #3c5802be;
+
+}
+.timeline .timeline-heading h4.subheading, .timeline .timeline-heading .subheading.h4 {
+  text-transform: none;
+}
+.timeline .timeline-body > ul,
+.timeline .timeline-body > p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .timeline:before {
+    left: 50%;
+  }
+  .timeline > li {
+    min-height: 100px;
+    margin-bottom: 100px;
+  }
+  .timeline > li .timeline-panel {
+    float: left;
+    width: 41%;
+    padding: 0 20px 20px 30px;
+    text-align: right;
+  }
+  .timeline > li .timeline-image {
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+  }
+  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 16px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+    padding: 0 30px 20px 20px;
+    text-align: left;
+  }
+}
+@media (min-width: 992px) {
+  .timeline > li {
+    min-height: 150px;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 20px 20px;
+  }
+  .timeline > li .timeline-image {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+  }
+  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 30px;
+    color: rgb(220, 221, 135);
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 20px 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .timeline > li {
+    min-height: 170px;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 20px 20px 100px;
+  }
+  .timeline > li .timeline-image {
+    width: 170px;
+    height: 170px;
+    margin-left: -85px;
+  }
+  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+    margin-top: 40px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 100px 20px 20px;
+  }
+}
+.timeline-heading
+{
+  margin-left: 4em;
+  margin-bottom: -3%;
+}
+.subheading
+{
+  font-family:Japanese;
+}
+body
+{
+  font-style: italic;
+  font-family:Japanese;
+}
+.text-muted
+{
+  margin-left: 9%;
+  text-align: center;
+  font-weight: bold;
+}
+#text-muted
+{
+  margin-right: 9%;
+  text-align: start;
+  text-align: center;
+}
+.h7
+{
+  margin-right: 9%;
+  color:  #54790cbe;
+  text-align: center;
+  font-weight: bold;
+}
+#subheading
+{
+  margin-right: 9%;
+  margin-bottom: -2%;
+  color:  #54790cbe;
+  text-align: center;
+  font-weight: bold;
+}
+.rounded-circle
+{
+
+        border-radius: 50%;
+        width: 100%;
+        text-align: center;
+}
+.subheading
+{
+  text-align: center;
+   font-weight: bold;
+}
+.titre1
+{
+        font-family:Japanese;
+        text-align: center;
+        font-weight: bold;
+        font-size: xxx-large;
+}
+.span2
+{
+  color: #3c5802be;
+  font-weight: bold;
+}
+/* Section */
+.section {
+  padding: 160px 0 0 0;
+}
+
+/* Benefits */
+.benefit-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 80px;
+}
+
+.benefit {
+  border: 1px solid #ccc;
+  padding: 16px 16px 32px 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.benefit .icon {
+  color:  #ff0000;
+  font-size: 64px;
+}
+
+.benefit h4 {
+  margin-bottom: 5px;
+}
+
+.benefit .text {
+  font-size: 24px;
+  color: #777;
+}
+.social-links{
+        margin-top: 3%;
+    }
+    
+    .social-links a{
+        font-size: 150%;
+        color: rgb(93, 95, 93);
+        margin-left: 3%;
+    }
+    
+    .social-links a:hover{
+     color: rgb(11, 104, 11);
+    }
+    .m 
+    {
+        font-family:Japanese;
+        color: rgb(11, 104, 11);
+        font-weight: bolder;
+
+
+    }
+    .n
+    {
+        font-size: 80%;
+        margin-left: 7%;
+        color: #606163;
+        color: rgb(11, 143, 11);
+    }
+    .az
+{
+    text-decoration: none;
+    font-size: 80%;
+    color: #3c5802be;
+}
+.az:hover
+{
+    color:rgb(11, 104, 11);
+    text-decoration: underline;
+}
+
+        </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="overlay"></div>
+        <div class="overlay-text">
+          <big><h1 class="h1" style font-family:Japanese;">
+            La <span class="span"> nature </span>est notre source d'inspiration <br> <center>pour nos produits </center>
+    </big>  
+    </div>
+    </div>
+    <div class="container-fluid" id="container-fluid">
+        <p>La beauté commence avec des ingrédients naturels. Nos produits cosmétiques naturels vous aident à obtenir une peau plus saine, plus belle et plus radieuse.</p> 
+            </div>
+        </div><br><br><br><br>
+        <div class="container-fluid" id="content">
+            <div class="row">
+                    <div class="col-sm-5">
+                        <div class="DIV1">
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                    <div class="img2">
+                        <img src="b1.jpg" alt="" width="80%" height="80%">
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <p id="text">Nous sommes fiers de vous présenter notre gamme de produits cosmétiques 100% naturels et bio. 
+                    juChez nous, nous croyons en l'importance de prendre soin de votre peau et de votre corps de manière naturelle et respectueuse de l'environnement.
+                     C'est pourquoi nous n'utilisons que les meilleurs ingrédients biologiques, sélectionnés avec soin pour leur efficacité et leur pureté.
+                </p>
+                <p  id="text">Nos produits ne contiennent aucun additif synthétique, conservateur ou colorant artificiel, garantissant ainsi une expérience cosmétique saine et respectueuse de votre corps. Nous sommes convaincus que la nature détient les meilleurs secrets de beauté, et nous sommes fiers de les partager avec vous.</p><br>
+            </div></div></div> <br><br><br><br><br><br><br><br>
+            
+
+
+
+
+            <div class="container-fluid" id="content">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div id="text">
+                            <p class="text2" >Nous croyons que la beauté naturelle est la meilleure forme de beauté. Nos produits respectent cet idéal en utilisant des ingrédients naturels et biologiques, qui soutiennent la santé et la vitalité de votre peau, sans compromettre notre engagement envers l'environnement.</p><br>
+                            <p class="text2">Notre équipe de professionnels passionnés est déterminée à créer des produits de qualité supérieure qui répondent aux besoins individuels de chaque client. Nos formules sont soigneusement élaborées pour garantir des résultats durables, tout en préservant l'équilibre naturel de votre peau.</p>
+                        </div>
+                    </div>
+                    <div class="DIV2" >
+                    </div>
+                        <div id="img3">
+                            <img src="b2.jpg" alt="" width="67%" height="75%">
+                    </div>
+                </div> 
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <big><center><h1 class="titre1">Étapes de notre <span class="span2">projet</span> </h1></center></big>
+            <br><br><br> 
+            <section class="page-section" id="about">
+                <div class="container">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="b3.jpg" alt="..." /></div>
+                            <div class="timeline-panel">
+                                <div id="timeline-heading">
+                                    <h4 class="h7">Décembre 2022</h4>
+                                    <h4 id="subheading">Nos humbles débuts</h4>
+                                </div>
+                                <div class="timeline-body"><p id="text-muted">Au début du projet , tout était sur papier. Les idées, les plans, les objectifs, les stratégies et les budgets ont été soigneusement élaborés sur des feuilles de papier. Le processus de création d'une entreprise nécessite souvent de nombreuses réunions pour discuter de tous les détails et de prendre des décisions importantes.</p></div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="b4.jpg" alt="..." /></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4  class="h7">Janvier 2023</h4>
+                                    <h4 class="subheading">Une agence est née</h4>
+                                </div>
+                                <div class="timeline-body"><p class="text-muted">Après une planification minutieuse, l'équipe a commencé à transformer leurs idées en réalité en passant au stade de la codification du site web de vente de produits cosmétiques. Les développeurs web ont utilisé différentes langues de programmation pour écrire le code source du site, en tenant compte des fonctionnalités nécessaires pour une expérience utilisateur fluide</p></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="b5.jpg" alt="..." /></div>
+                            <div class="timeline-panel">
+                                <div id="timeline-heading">
+                                    <h4 class="h7">Mars 2023</h4>
+                                    <h4 id="subheading">Transition vers le service complet</h4>
+                                </div>
+                                <div class="timeline-body"><p id="text-muted">Notre équipe est actuellement en train de présenter le site web de vente de produits cosmétiques au public. Après des mois de travail acharné, de planification et de codage, le site est enfin prêt à être lancé et à offrir une expérience de shopping en ligne exceptionnelle. Bien que le site soit déjà opérationnel, notre équipe continuera à travailler sur sa dynamisation jusqu'à la fin de l'année, en ajoutant de nouvelles fonctionnalités pour améliorer l'expérience utilisateur et en affinant les processus de commande et de livraison pour satisfaire les clients les plus exigeants.</p></div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="b6.jpg" alt="..." /></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="h7">............</h4>
+                                    <h4 class="subheading">Expansion de la phase deux</h4>
+                                </div>
+                                <div class="timeline-body"><p class="text-muted">Notre équipe est animée par une ambition sans limite. Nous aspirons à devenir un acteur majeur du secteur des produits cosmétiques et pour cela, nous envisageons d'ouvrir notre propre usine pour produire nos produits</p></div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>
+                                    Faites partie
+                                    <br />
+                                    de notre
+                                    <br />
+                                    histoire!
+                                </h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+              </section>
+              
+              <section class="section benefits">
+                <div class="benefit-center box">
+                  <div class="benefit">
+                    <span class="icon"><i class="bx bx-purchase-tag"></i></span>
+                    <h4>Free Shipping</h4>
+                    <span class="text">Capped at $16 per order</span>
+                  </div>
+            
+                 
+                  <div class="benefit">
+                    <span class="icon"><i class="bx bx-book-reader"></i></span>
+                    <h4>10-Day Returns</h4>
+                    <span class="text">Shop without any fear</span>
+                  </div>
+            
+                  <div class="benefit">
+                    <span class="icon"><i class="bx bx-headphone"></i></span>
+                    <h4>24/7 Support</h4>
+                    <span class="text">We are always there to help you</span>
+                  </div>
+                </div>
+              </section>
+
+              
+
+
+              <br><br><br>
+<div class="container-fluid" Style="background-color:#ddca8bd3; width: 100%; ">
+    <div class="row">
+        
+        <div class="col ">
+         <div class="row" id="row">
+        <div class="col p-1 "><br><br><br>
+            <h6  class="m">INFORMATIONS SUR <br> L'ENTREPRISE</h6>
+            <p><a class="az"  href="#">Qui Sommes-Nous?</a></p>
+            <p><a class="az"  href="#">Affilié</a></p>
+            <p><a class="az"  href="#">Blogger</a></p>
+        </div>
+        <div class="col p-1 "><br><br><br>
+            <h6 class="m">CENTRE & D'AIDE</h6>
+            <p><a class="az"  href="#">Livraison</a></p>
+            <p><a class="az"  href="#">Retour</a></p>
+            <p><a class="az"  href="#">Commande</a></p>
+            <p><a class="az"  href="#">Statut De Commande</a></p>
+            <p><a class="az"  href="#">Responsabilité Sociale</a></p>
+            <p><a class="az"  href="#">PURE-BEAUTY VIP</a></p>
+        </div>
+        <div class="col p-1"><br><br><br>
+            <h6 class="m" >AIDE</h6>
+            <p><a class="az" href="#">Nous Contacter</a></p>
+            <p><a class="az"  href="#">Paiement</a></p>
+            <p><a class="az"  href="#">Points Bonus</a></p>
+            <p><a class="az"  href="#">Avantages Des Membres</a></p>
+        </div>
+      </div>
+        
+        </div>
+        <div class="col p-3 "><br><br><br>
+            <h4 class="m">TROUVEZ-NOUS SUR</h4>
+            <div class="social-links">
+                <a href=""><i class="fab fa-linkedin"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-pinterest"></i></a>
+              </div>
+        </div>
+        </div><br><br><br>
+        <div class="n">
+            <br>
+            <p >©2009-2023 SHEIN Tous droits réservés</p>
+            <a class="az" href="#">Centre de confidentialité </a>&emsp;|&emsp;<a class="az" href="#">Politique de confidentialité & cookies</a>&emsp;|&emsp;<a class="az" href="#">Termes et conditions</a> |<br> <a class="az" href="#">Notice de droits d'auteur</a>&emsp;|&emsp;<a class="az" href="#">Impression</a>&emsp;|&emsp; <a class="az" href="#">MAROC</a>
+    
+    <br><br><br><br><br>
+        </div>
+      </div>
+</body>
+
+</html>
+

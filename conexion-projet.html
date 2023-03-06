@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>login form</title>
+</head>
+<style>
+  form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.forgot-password-link {
+  color: #777;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+</style>
+<body>
+  
+  <form id="form-conexion">
+    <h2>Connexion</h2>
+    <label for="email">Nom d'utilisateur</label>
+    <input type="email" id="email" name="email" required>
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="password" required>
+    <div class="form-footer">
+      <button type="submit">Connexion</button>
+      <a href="#" class="forgot-password-link">Mot de passe oublié?</a>
+    </div>
+  </form>
+  <script>
+    const form = document.getElementById("form-conexion");
+
+       form.addEventListener("submit", (e) => {e.preventDefault();
+       const email = form.elements["email"].value;
+       const password = form.elements["password"].value;
+      
+       });
+
+ </script>
+  
+</body>
+</html>
